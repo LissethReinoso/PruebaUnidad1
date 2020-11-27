@@ -11,31 +11,29 @@ import java.util.Date;
  *
  * @author Usuario
  */
-public class Persona <T>{
+public class Testigo <T>{
+  
     
     private T nombre;
     private T apellido;
     private T cedula;
     private T direccion;
-    private T genero;
     private Date fechaDeNacimiento;
-    private T funcion;
 
-    public Persona() {
+
+    public Testigo() {
     }
 
-    public Persona(T nombre, T apellido, T cedula, T direccion, T genero, Date fechaDeNacimiento, T funcion) {
+    public Testigo(T nombre, T apellido, T cedula, T direccion, Date fechaDeNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.direccion = direccion;
-        this.genero = genero;
         this.fechaDeNacimiento = fechaDeNacimiento;
-        this.funcion = funcion;
     }
 
-   
-
+    
+    
     public T getNombre() {
         return nombre;
     }
@@ -68,14 +66,6 @@ public class Persona <T>{
         this.direccion = direccion;
     }
 
-    public T getGenero() {
-        return genero;
-    }
-
-    public void setGenero(T genero) {
-        this.genero = genero;
-    }
-
     public Date getFechaDeNacimiento() {
         return fechaDeNacimiento;
     }
@@ -84,26 +74,10 @@ public class Persona <T>{
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 
-    public T getFuncion() {
-        return funcion;
-    }
-
-    public void setFuncion(T funcion) {
-        this.funcion = funcion;
-    }
-
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", direccion=" + direccion + ", genero=" + genero + ", fechaDeNacimiento=" + fechaDeNacimiento + ", funcion=" + funcion + '}';
+        return "Testigo{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", direccion=" + direccion + ", fechaDeNacimiento=" + fechaDeNacimiento + '}';
     }
-
-   
-    
-    
-    
-    
-    
-    
     
     
     

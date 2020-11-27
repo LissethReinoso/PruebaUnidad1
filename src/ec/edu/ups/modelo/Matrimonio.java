@@ -8,6 +8,7 @@ package ec.edu.ups.modelo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -18,21 +19,25 @@ public class Matrimonio <T>{
     private T codigo;
     private T fecha;
     private T lugar;
-    private Persona persona;
-    
+    private Novio novio;
+    private Testigo testigo;
+    private Autoridad autoridad;
     
     //Agregacion
-    private List<Persona> personas;
+    private List<Novio> novios;
+    private List<Testigo> testigos;
     
     public Matrimonio() {
-        personas = new ArrayList<>();
+       novios = new ArrayList<>();
+       testigos = new ArrayList<>();
     }
 
     public Matrimonio(T codigo, T fecha, T lugar) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.lugar = lugar;
-        personas = new ArrayList<>();
+        novios = new ArrayList<>();
+        testigos = new ArrayList<>();
     }
 
     public T getCodigo() {
@@ -58,15 +63,16 @@ public class Matrimonio <T>{
     public void setLugar(T lugar) {
         this.lugar = lugar;
     }
-    
-    
+
     //metodos
-    public boolean agregarPersona(Persona persona) {
-        return this.personas.add(new Persona( persona.getNombre(),persona.getApellido() ,persona.getCedula(),persona.getDireccion(), persona.getGenero(), persona.getFechaDeNacimiento(),persona.getFuncion()));
+    
+    //métodos de la agregación
+    public boolean agregarNovio(Novio n) {
+        return this.novios.add(new Novio(n.getNombre(),n.getApellido(),n.getCedula(),n.getGenero(),n.getDireccion(),n.getFechaDeNacimiento()));
     }
     
     
-    
+
     
     @Override
     public String toString() {
