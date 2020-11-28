@@ -5,10 +5,30 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.modelo.Testigo;
+import java.util.List;
+
 /**
  *
  * @author Usuario
  */
-public class ControladorTestigo {
+public class ControladorTestigo extends Controlador<Testigo> {
+
+    public ControladorTestigo(List<Testigo> LGenerica) {
+        super(LGenerica);
+    }
+
+    @Override
+    public boolean validar(Testigo obj) {
+       
+        
+        return true;
+    }
+    
+    
+    
+    
+    
+    
     
 }

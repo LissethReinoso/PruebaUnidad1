@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Usuario
  */
-public class Testigo <T>{
+public abstract class Testigo <T>{
   
     
     private T nombre;

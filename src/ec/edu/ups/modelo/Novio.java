@@ -93,7 +93,7 @@ public abstract class Novio <T>{
 
    
     public boolean agregarTestigo(Testigo t) {
-        return this.testigos.add(new Testigo(t.getNombre(),t.getApellido(),t.getCedula(),t.getDireccion(),t.getFechaDeNacimiento()));
+        return this.testigos.add(new Testigo(t.getNombre(),t.getApellido(),t.getCedula(),t.getDireccion(),t.getFechaDeNacimiento()) {});
     }
     
     

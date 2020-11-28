@@ -14,7 +14,7 @@ import java.util.Objects;
  *
  * @author Usuario
  */
-public class Matrimonio <T>{
+public class Matrimonio <T> implements Iterator{
     
     private T codigo;
     private T fecha;
@@ -72,12 +72,70 @@ public class Matrimonio <T>{
     }
     
     
+    
+    
 
     
     @Override
     public String toString() {
         return "codigo=" + codigo + ", fecha=" + fecha + ", lugar=" + lugar + '}';
     }
+
+    @Override
+    public boolean validar() {
+      
+         boolean bandera = false;
+         for(int i=0;i<novios.size();i++){
+            
+            bandera= true;
+       
+         }
+         
+         for(int i=0;i<testigos.size();i++){
+            
+            bandera= true;
+    
+         }
+         
+        return bandera;   
+    }
+
+ 
+
+    @Override
+    public List<Novio> listarN() {
+        
+        for(int i=0;i<novios.size();i++){
+            novios.stream().forEach((n)-> {
+            System.out.println(n.getCedula());
+            System.out.println(n.getNombre());
+            System.out.println(n.getApellido());
+            System.out.println(n.getGenero());
+            System.out.println(n.getDireccion());
+            System.out.println(n.getFechaDeNacimiento());
+                
+         });
+                    }
+        return novios;
+    }
+
+    @Override
+    public List<Testigo> listarT() {
+     
+        for(int i=0;i<testigos.size();i++){
+            testigos.stream().forEach((t)-> {
+            System.out.println(t.getCedula());
+            System.out.println(t.getNombre());
+            System.out.println(t.getApellido());
+            System.out.println(t.getDireccion());
+            System.out.println(t.getFechaDeNacimiento());
+                
+         });
+                    }
+        return testigos;
+    }
+
+    
 
     
     

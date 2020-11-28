@@ -14,10 +14,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
+    
+    
+    //declarar ventanas
+     private VentanaRegistrarAutoridad ventanaRegistrarAutoridad;
+     private VentanaRegistrarNovios ventanaRegistrarNovios;
+     private VentanaRegistrarTestigos ventanaRegistrarTestigos;
+     private VentanaIniciarSesion ventanaIniciarSesion;
+     private VentanaMatrimonio ventanaMatrimonio;
+     private VentanaListarMatrimonio ventanaListarMatrimonio;
+    
     public VentanaPrincipal() {
         initComponents();
+        ventanaRegistrarAutoridad = new VentanaRegistrarAutoridad();
+        ventanaRegistrarNovios = new VentanaRegistrarNovios();
+        ventanaRegistrarTestigos=new VentanaRegistrarTestigos();
+        ventanaIniciarSesion=new VentanaIniciarSesion();
+        ventanaMatrimonio=new VentanaMatrimonio();
+        ventanaListarMatrimonio=new VentanaListarMatrimonio();
     }
-
+         
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,10 +54,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,14 +62,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Novios");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Testigos");
+        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Autoridad");
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveAsMenuItem);
 
         exitMenuItem.setMnemonic('x');
@@ -72,38 +99,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar.add(fileMenu);
 
         editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        editMenu.setText("Gestión Matrimonio");
 
         cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
+        cutMenuItem.setText("Iniciar Sesión");
+        cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(cutMenuItem);
 
         copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
+        copyMenuItem.setText("Registro Matrimonio");
+        copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copyMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(copyMenuItem);
 
         pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
+        pasteMenuItem.setText("Listado");
+        pasteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasteMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(pasteMenuItem);
 
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
-
         menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
 
         setJMenuBar(menuBar);
 
@@ -124,6 +149,50 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
+
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+        // TODO add your handling code here:
+        desktopPane.add(ventanaRegistrarAutoridad);
+        ventanaRegistrarAutoridad.setVisible(true);
+
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
+
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+        // TODO add your handling code here:
+        desktopPane.add(ventanaRegistrarTestigos);
+        ventanaRegistrarTestigos.setVisible(true);
+
+    }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here:
+
+        desktopPane.add(ventanaRegistrarNovios);
+        ventanaRegistrarNovios.setVisible(true);
+
+    }//GEN-LAST:event_openMenuItemActionPerformed
+
+    private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
+        // TODO add your handling code here:
+        desktopPane.add(ventanaMatrimonio);
+        ventanaMatrimonio.setVisible(true);
+        
+        
+    }//GEN-LAST:event_copyMenuItemActionPerformed
+
+    private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
+        // TODO add your handling code here:
+        desktopPane.add(ventanaIniciarSesion);
+        ventanaIniciarSesion.setVisible(true);
+        
+    }//GEN-LAST:event_cutMenuItemActionPerformed
+
+    private void pasteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteMenuItemActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_pasteMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,16 +230,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
