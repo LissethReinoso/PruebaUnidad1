@@ -68,7 +68,7 @@ public class Matrimonio <T>{
     
     //métodos de la agregación
     public boolean agregarNovio(Novio n) {
-        return this.novios.add(new Novio(n.getNombre(),n.getApellido(),n.getCedula(),n.getGenero(),n.getDireccion(),n.getFechaDeNacimiento()));
+        return this.novios.add(new Novio(n.getNombre(),n.getApellido(),n.getCedula(),n.getGenero(),n.getDireccion(),n.getFechaDeNacimiento()) {});
     }
     
     

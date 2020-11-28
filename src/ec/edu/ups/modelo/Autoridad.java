@@ -18,19 +18,26 @@ public class Autoridad <T> {
     private T apellido;
     private T cedula;
     private T direccion;
+    private T correo;
+    private T contrasenia;
     private Date fechaDeNacimiento;
-    private Matrimonio matrimonio;
+     
 
     public Autoridad() {
     }
 
-    public Autoridad(T nombre, T apellido, T cedula, T direccion, Date fechaDeNacimiento) {
+    public Autoridad(T nombre, T apellido, T cedula, T direccion, T correo, T contrasenia, Date fechaDeNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.direccion = direccion;
+        this.correo = correo;
+        this.contrasenia = contrasenia;
         this.fechaDeNacimiento = fechaDeNacimiento;
+        
     }
+
+    
 
     public T getNombre() {
         return nombre;
@@ -72,13 +79,29 @@ public class Autoridad <T> {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 
-    public Matrimonio getMatrimonio() {
-        return matrimonio;
+
+    public T getCorreo() {
+        return correo;
     }
 
-    public void setMatrimonio(Matrimonio matrimonio) {
-        this.matrimonio = matrimonio;
+    public void setCorreo(T correo) {
+        this.correo = correo;
     }
+
+    public T getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(T contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    @Override
+    public String toString() {
+        return "Autoridad{" + "nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", direccion=" + direccion + ", correo=" + correo + ", fechaDeNacimiento=" + fechaDeNacimiento + '}';
+    }
+    
+    
     
     
     

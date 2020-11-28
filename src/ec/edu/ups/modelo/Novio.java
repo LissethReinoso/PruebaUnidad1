@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Usuario
  */
-public class Novio <T>{
+public abstract class Novio <T>{
     
     private T nombre;
     private T apellido;
