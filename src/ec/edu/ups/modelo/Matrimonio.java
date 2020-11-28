@@ -16,7 +16,7 @@ import java.util.Objects;
  */
 public class Matrimonio <T> implements Iterator{
     
-    private T codigo;
+    
     private T fecha;
     private T lugar;
     private Novio novio;
@@ -32,21 +32,15 @@ public class Matrimonio <T> implements Iterator{
        testigos = new ArrayList<>();
     }
 
-    public Matrimonio(T codigo, T fecha, T lugar) {
-        this.codigo = codigo;
+    public Matrimonio( T fecha, T lugar) {
+        
         this.fecha = fecha;
         this.lugar = lugar;
         novios = new ArrayList<>();
         testigos = new ArrayList<>();
     }
 
-    public T getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(T codigo) {
-        this.codigo = codigo;
-    }
+   
 
     public T getFecha() {
         return fecha;
@@ -78,7 +72,7 @@ public class Matrimonio <T> implements Iterator{
     
     @Override
     public String toString() {
-        return "codigo=" + codigo + ", fecha=" + fecha + ", lugar=" + lugar + '}';
+        return fecha + ", lugar=" + lugar + '}';
     }
 
     @Override

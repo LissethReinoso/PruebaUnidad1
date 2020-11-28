@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.Controlador;
+import ec.edu.ups.modelo.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -14,10 +18,26 @@ public class VentanaRegistrarAutoridad extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaRegistrarAutoridad2
      */
+    
+    String cedula="";
+    String nombre="";
+    String apellido="";
+    String direccion="";
+    String fecha="";
+    String correo="";
+    String contrasenia="";
+    Autoridad a;
+    Controlador controlador;
+        
+    
     public VentanaRegistrarAutoridad() {
         initComponents();
+        a=new Autoridad();
+        
     }
-
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,8 +61,10 @@ public class VentanaRegistrarAutoridad extends javax.swing.JInternalFrame {
         btnRegistrarT = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btncorreo = new javax.swing.JTextField();
-        btncontrasenia = new javax.swing.JTextField();
+        txtcorreo = new javax.swing.JTextField();
+        txtcontrasenia = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtdireccion = new javax.swing.JTextField();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(102, 51, 0)));
 
@@ -65,8 +87,37 @@ public class VentanaRegistrarAutoridad extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Autoridad Civil");
 
+        txtcedulaA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcedulaAActionPerformed(evt);
+            }
+        });
+
+        txtnombreA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnombreAActionPerformed(evt);
+            }
+        });
+
+        txtapellidoA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtapellidoAActionPerformed(evt);
+            }
+        });
+
+        txtfechaA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfechaAActionPerformed(evt);
+            }
+        });
+
         btnRegistrarT.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnRegistrarT.setText("AGREGAR");
+        btnRegistrarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarTActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel6.setText("Coreo Electrónico:");
@@ -74,12 +125,33 @@ public class VentanaRegistrarAutoridad extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel7.setText("Contraseña:");
 
+        txtcorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcorreoActionPerformed(evt);
+            }
+        });
+
+        txtcontrasenia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcontraseniaActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel9.setText("Direccion:");
+
+        txtdireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdireccionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 184, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -89,12 +161,11 @@ public class VentanaRegistrarAutoridad extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtcedulaA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtnombreA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -104,20 +175,22 @@ public class VentanaRegistrarAutoridad extends javax.swing.JInternalFrame {
                                         .addComponent(jLabel4)
                                         .addGap(131, 131, 131))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(68, 68, 68)))
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel9))
+                                        .addGap(50, 50, 50)))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btncontrasenia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                                    .addComponent(btncorreo, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtapellidoA, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                                .addComponent(txtfechaA, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtcontrasenia, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtcorreo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtapellidoA, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtfechaA, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                    .addComponent(txtdireccion)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
+                        .addGap(176, 176, 176)
                         .addComponent(btnRegistrarT)))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,21 +211,25 @@ public class VentanaRegistrarAutoridad extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtapellidoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtfechaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(btncorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(txtcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(btncontrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(txtcontrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addComponent(btnRegistrarT)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,11 +248,81 @@ public class VentanaRegistrarAutoridad extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtcedulaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcedulaAActionPerformed
+        // TODO add your handling code here:
+        txtcedulaA.setText(cedula);
+        
+        
+    }//GEN-LAST:event_txtcedulaAActionPerformed
+
+    private void txtnombreAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreAActionPerformed
+        // TODO add your handling code here:
+        txtnombreA.setText(nombre);
+        
+    }//GEN-LAST:event_txtnombreAActionPerformed
+
+    private void txtapellidoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidoAActionPerformed
+        // TODO add your handling code here:
+        txtapellidoA.setText(apellido);
+        
+    }//GEN-LAST:event_txtapellidoAActionPerformed
+
+    private void txtfechaAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfechaAActionPerformed
+        // TODO add your handling code here:
+        txtfechaA.setText(fecha);
+    }//GEN-LAST:event_txtfechaAActionPerformed
+
+    private void txtcorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcorreoActionPerformed
+        // TODO add your handling code here:
+        txtcorreo.setText(correo);
+    }//GEN-LAST:event_txtcorreoActionPerformed
+
+    private void txtcontraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontraseniaActionPerformed
+        // TODO add your handling code here:
+        txtcontrasenia.setText(contrasenia);
+        
+    }//GEN-LAST:event_txtcontraseniaActionPerformed
+
+    private void btnRegistrarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarTActionPerformed
+        // TODO add your handling code here:
+        
+        if (txtcedulaA.getText().equals("") || txtnombreA.getText().equals("") || txtapellidoA.getText().equals("")|| txtfechaA.getText().equals("")||txtdireccion.getText().equals("")|| txtcorreo.getText().equals("")||txtcontrasenia.getText().equals("") ) {
+            JOptionPane.showMessageDialog(null, "Rellene todas las casillas", "Error", 0);
+        } else {
+          cedula = txtcedulaA.getText();
+          nombre = txtnombreA.getText();
+          apellido = txtapellidoA.getText();
+          fecha= txtfechaA.getText();
+          correo = txtcorreo.getText();
+         contrasenia = txtcontrasenia.getText();
+        
+        a = new Autoridad( nombre, apellido,cedula, direccion,correo,contrasenia,fecha);
+            
+            
+            if (txtcedulaA.getText().equals(cedula) || txtnombreA.getText().equals(nombre) || txtapellidoA.getText().equals(apellido) ||txtfechaA.getText().equals(fecha)||txtdireccion.getText().equals(direccion)||txtcorreo.getText().equals(correo)||txtcontrasenia.getText().equals(contrasenia) ) {
+            
+            JOptionPane.showMessageDialog(null, "Autoridad registrado con éxito");
+            }
+            txtcedulaA.setText("");
+            txtnombreA.setText("");
+            txtapellidoA.setText("");
+            txtdireccion.setText("");
+            txtfechaA.setText("");
+            txtcorreo.setText("");
+            txtcontrasenia.setText("");
+        
+        }
+    }//GEN-LAST:event_btnRegistrarTActionPerformed
+
+    private void txtdireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdireccionActionPerformed
+        // TODO add your handling code here:
+         txtdireccion.setText(direccion);
+        
+    }//GEN-LAST:event_txtdireccionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarT;
-    private javax.swing.JTextField btncontrasenia;
-    private javax.swing.JTextField btncorreo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -184,9 +331,13 @@ public class VentanaRegistrarAutoridad extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtapellidoA;
     private javax.swing.JTextField txtcedulaA;
+    private javax.swing.JTextField txtcontrasenia;
+    private javax.swing.JTextField txtcorreo;
+    private javax.swing.JTextField txtdireccion;
     private javax.swing.JTextField txtfechaA;
     private javax.swing.JTextField txtnombreA;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,11 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.Controlador;
+import ec.edu.ups.controlador.ControladorTestigo;
+import ec.edu.ups.modelo.Testigo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -14,6 +19,24 @@ public class VentanaRegistrarTestigos extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaRegistrarTestigos
      */
+    
+    String cedula="";
+    String nombre="";
+    String apellido="";
+    String direccion="";
+    String fecha="";
+
+    String cedula2="";
+    String nombre2="";
+    String apellido2="";
+    String direccion2="";
+    String fecha2="";
+    
+    
+    Testigo t;
+    Controlador controlador;
+    ControladorTestigo controladorT;
+    
     public VentanaRegistrarTestigos() {
         initComponents();
     }
@@ -49,6 +72,10 @@ public class VentanaRegistrarTestigos extends javax.swing.JInternalFrame {
         txtapellido2T = new javax.swing.JTextField();
         txtfecha2T = new javax.swing.JTextField();
         btnRegistrarT = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtdireccion = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtdireccion2 = new javax.swing.JTextField();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(102, 51, 0)));
 
@@ -86,8 +113,79 @@ public class VentanaRegistrarTestigos extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel12.setText("Fecha de Nacimiento:");
 
+        txtcedulaT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcedulaTActionPerformed(evt);
+            }
+        });
+
+        txtnombreT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnombreTActionPerformed(evt);
+            }
+        });
+
+        txtapellidoT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtapellidoTActionPerformed(evt);
+            }
+        });
+
+        txtfechaT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfechaTActionPerformed(evt);
+            }
+        });
+
+        txtcedula2T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcedula2TActionPerformed(evt);
+            }
+        });
+
+        txtnombre2T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnombre2TActionPerformed(evt);
+            }
+        });
+
+        txtapellido2T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtapellido2TActionPerformed(evt);
+            }
+        });
+
+        txtfecha2T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfecha2TActionPerformed(evt);
+            }
+        });
+
         btnRegistrarT.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnRegistrarT.setText("AGREGAR");
+        btnRegistrarT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarTActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel6.setText("Dirección:");
+
+        txtdireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdireccionActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
+        jLabel13.setText("Dirección:");
+
+        txtdireccion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtdireccion2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -103,38 +201,41 @@ public class VentanaRegistrarTestigos extends javax.swing.JInternalFrame {
                 .addGap(70, 70, 70)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtnombreT, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(135, 135, 135)
-                                    .addComponent(txtcedulaT, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(131, 131, 131)
+                                .addComponent(jLabel2)
+                                .addGap(135, 135, 135)
+                                .addComponent(txtcedulaT, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtnombreT, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                                     .addComponent(txtfechaT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                    .addComponent(txtapellidoT, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(txtapellidoT, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtdireccion))))
                         .addGap(137, 137, 137)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel7)
                                 .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(jLabel11)))
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel13)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(326, 326, 326)
+                        .addGap(457, 457, 457)
                         .addComponent(jLabel12)))
                 .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtnombre2T, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtcedula2T, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtapellido2T, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtfecha2T, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtnombre2T, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtcedula2T, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtapellido2T, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtfecha2T, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdireccion2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(101, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -172,11 +273,17 @@ public class VentanaRegistrarTestigos extends javax.swing.JInternalFrame {
                     .addComponent(txtapellido2T, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
                     .addComponent(jLabel12)
-                    .addComponent(txtfechaT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtfecha2T, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                    .addComponent(txtfecha2T, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtfechaT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtdireccion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(btnRegistrarT)
                 .addGap(41, 41, 41))
         );
@@ -187,13 +294,13 @@ public class VentanaRegistrarTestigos extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,6 +323,113 @@ public class VentanaRegistrarTestigos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtcedulaTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcedulaTActionPerformed
+        // TODO add your handling code here:
+         txtcedulaT.setText(cedula);
+        
+    }//GEN-LAST:event_txtcedulaTActionPerformed
+
+    private void txtnombreTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreTActionPerformed
+        // TODO add your handling code here:
+         txtnombreT.setText(nombre);
+    }//GEN-LAST:event_txtnombreTActionPerformed
+
+    private void txtapellidoTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidoTActionPerformed
+        // TODO add your handling code here:
+         txtapellidoT.setText(apellido);
+    }//GEN-LAST:event_txtapellidoTActionPerformed
+
+    private void txtfechaTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfechaTActionPerformed
+        // TODO add your handling code here:
+         txtfechaT.setText(fecha);
+    }//GEN-LAST:event_txtfechaTActionPerformed
+
+    private void txtdireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdireccionActionPerformed
+        // TODO add your handling code here:
+         txtdireccion.setText(direccion);
+    }//GEN-LAST:event_txtdireccionActionPerformed
+
+    private void txtcedula2TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcedula2TActionPerformed
+        // TODO add your handling code here:
+         txtcedula2T.setText(cedula2);
+    }//GEN-LAST:event_txtcedula2TActionPerformed
+
+    private void txtnombre2TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombre2TActionPerformed
+        // TODO add your handling code here:
+         txtnombre2T.setText(nombre2);
+        
+    }//GEN-LAST:event_txtnombre2TActionPerformed
+
+    private void txtapellido2TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellido2TActionPerformed
+        // TODO add your handling code here:
+         txtapellido2T.setText(apellido2);
+    }//GEN-LAST:event_txtapellido2TActionPerformed
+
+    private void txtfecha2TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfecha2TActionPerformed
+        // TODO add your handling code here:
+         txtfecha2T.setText(fecha2);
+    }//GEN-LAST:event_txtfecha2TActionPerformed
+
+    private void txtdireccion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtdireccion2ActionPerformed
+        // TODO add your handling code here:
+         txtdireccion2.setText(direccion2);
+    }//GEN-LAST:event_txtdireccion2ActionPerformed
+
+    private void btnRegistrarTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarTActionPerformed
+        // TODO add your handling code here:
+        if (txtcedulaT.getText().equals("") || txtnombreT.getText().equals("") || txtapellidoT.getText().equals("")|| txtfechaT.getText().equals("")||txtdireccion.getText().equals("")||txtcedula2T.getText().equals("") || txtnombre2T.getText().equals("") || txtapellido2T.getText().equals("")|| txtfecha2T.getText().equals("")||txtdireccion2.getText().equals("")   ) {
+            JOptionPane.showMessageDialog(null, "Rellene todas las casillas", "Error", 0);
+        } else {
+          cedula = txtcedulaT.getText();
+          nombre = txtnombreT.getText();
+          apellido = txtapellidoT.getText();
+          fecha= txtfechaT.getText();
+          direccion=txtdireccion.getText();
+         
+          cedula2 = txtcedula2T.getText();
+          nombre2 = txtnombre2T.getText();
+          apellido2 = txtapellido2T.getText();
+          fecha2= txtfecha2T.getText();
+          direccion2=txtdireccion2.getText();
+         
+         t.setCedula(cedula);
+         t.setNombre(nombre);
+         t.setApellido(apellido);
+         t.setFechaDeNacimiento(fecha);
+         t.setDireccion(direccion);
+         
+         
+         t.setCedula(cedula2);
+         t.setNombre(nombre2);
+         t.setApellido(apellido2);
+         t.setFechaDeNacimiento(fecha2);
+         t.setDireccion(direccion2);
+        
+         
+         if (txtcedulaT.getText().equals(cedula) || txtnombreT.getText().equals(nombre) || txtapellidoT.getText().equals(apellido) ||txtfechaT.getText().equals(fecha)||txtdireccion.getText().equals(direccion)||txtcedula2T.getText().equals(cedula2) || txtnombre2T.getText().equals(nombre2) || txtapellidoT.getText().equals(apellido2) ||txtfecha2T.getText().equals(fecha2)||txtdireccion2.getText().equals(direccion2) ) {
+            
+            JOptionPane.showMessageDialog(null, " Testigos registrados con éxito");
+            }
+        }
+        
+           txtcedulaT.setText("");
+            txtnombreT.setText("");
+            txtapellidoT.setText("");
+            txtdireccion.setText("");
+            txtfechaT.setText("");
+            
+            txtcedula2T.setText("");
+            txtnombre2T.setText("");
+            txtapellido2T.setText("");
+            txtdireccion2.setText("");
+            txtfecha2T.setText("");
+            
+        
+        
+        
+        
+    }//GEN-LAST:event_btnRegistrarTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarT;
@@ -223,10 +437,12 @@ public class VentanaRegistrarTestigos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -236,6 +452,8 @@ public class VentanaRegistrarTestigos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtapellidoT;
     private javax.swing.JTextField txtcedula2T;
     private javax.swing.JTextField txtcedulaT;
+    private javax.swing.JTextField txtdireccion;
+    private javax.swing.JTextField txtdireccion2;
     private javax.swing.JTextField txtfecha2T;
     private javax.swing.JTextField txtfechaT;
     private javax.swing.JTextField txtnombre2T;

@@ -18,13 +18,13 @@ public abstract class Testigo <T>{
     private T apellido;
     private T cedula;
     private T direccion;
-    private Date fechaDeNacimiento;
+    private T fechaDeNacimiento;
 
 
     public Testigo() {
     }
 
-    public Testigo(T nombre, T apellido, T cedula, T direccion, Date fechaDeNacimiento) {
+    public Testigo(T nombre, T apellido, T cedula, T direccion, T fechaDeNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -66,11 +66,11 @@ public abstract class Testigo <T>{
         this.direccion = direccion;
     }
 
-    public Date getFechaDeNacimiento() {
+    public T getFechaDeNacimiento() {
         return fechaDeNacimiento;
     }
 
-    public void setFechaDeNacimiento(Date fechaDeNacimiento) {
+    public void setFechaDeNacimiento(T fechaDeNacimiento) {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 

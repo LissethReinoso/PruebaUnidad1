@@ -20,13 +20,13 @@ public class Autoridad <T> {
     private T direccion;
     private T correo;
     private T contrasenia;
-    private Date fechaDeNacimiento;
+    private T fechaDeNacimiento;
      
 
     public Autoridad() {
     }
 
-    public Autoridad(T nombre, T apellido, T cedula, T direccion, T correo, T contrasenia, Date fechaDeNacimiento) {
+    public Autoridad(T nombre, T apellido, T cedula, T direccion, T correo, T contrasenia, T fechaDeNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -36,6 +36,7 @@ public class Autoridad <T> {
         this.fechaDeNacimiento = fechaDeNacimiento;
         
     }
+
 
     
 
@@ -71,11 +72,11 @@ public class Autoridad <T> {
         this.direccion = direccion;
     }
 
-    public Date getFechaDeNacimiento() {
+    public T getFechaDeNacimiento() {
         return fechaDeNacimiento;
     }
 
-    public void setFechaDeNacimiento(Date fechaDeNacimiento) {
+    public void setFechaDeNacimiento(T fechaDeNacimiento) {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 

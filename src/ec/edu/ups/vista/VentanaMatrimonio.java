@@ -5,6 +5,13 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.Controlador;
+import ec.edu.ups.controlador.ControladorTestigo;
+import ec.edu.ups.modelo.Autoridad;
+import ec.edu.ups.modelo.Matrimonio;
+import ec.edu.ups.modelo.Testigo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -14,6 +21,12 @@ public class VentanaMatrimonio extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaMatrimonio
      */
+    
+    String fecha="";
+    String lugar="";
+    
+    Matrimonio m;
+    Controlador controlador;
     public VentanaMatrimonio() {
         initComponents();
     }
@@ -29,10 +42,8 @@ public class VentanaMatrimonio extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtcodigo = new javax.swing.JTextField();
         txtfecha = new javax.swing.JTextField();
         txtlugar = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -44,44 +55,52 @@ public class VentanaMatrimonio extends javax.swing.JInternalFrame {
         jLabel1.setForeground(new java.awt.Color(51, 0, 0));
         jLabel1.setText("REGISTRO MATRIMONIO");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel2.setText("Código:");
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel4.setText("Lugar:");
+
+        txtfecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtfechaActionPerformed(evt);
+            }
+        });
+
+        txtlugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtlugarActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel5.setText("Fecha:");
 
         btnregistrarm.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnregistrarm.setText("REGISTRAR");
+        btnregistrarm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrarmActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(191, 191, 191)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addComponent(txtlugar, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                            .addComponent(txtfecha))))
+                            .addComponent(jLabel3))
+                        .addGap(69, 69, 69)
+                        .addComponent(txtlugar, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)))
                 .addGap(171, 171, 171))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(271, 271, 271)
@@ -97,20 +116,17 @@ public class VentanaMatrimonio extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
-                .addGap(56, 56, 56)
+                .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
                     .addComponent(txtfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(47, 47, 47)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel3)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtlugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                 .addComponent(btnregistrarm)
                 .addGap(67, 67, 67))
         );
@@ -135,16 +151,51 @@ public class VentanaMatrimonio extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtfechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtfechaActionPerformed
+        // TODO add your handling code here:
+        
+        txtfecha.setText(fecha);
+    }//GEN-LAST:event_txtfechaActionPerformed
+
+    private void txtlugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlugarActionPerformed
+        // TODO add your handling code here:
+        
+        txtlugar.setText(lugar);
+    }//GEN-LAST:event_txtlugarActionPerformed
+
+    private void btnregistrarmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarmActionPerformed
+        // TODO add your handling code here:
+        if (txtfecha.getText().equals("") || txtlugar.getText().equals("") ) {
+            JOptionPane.showMessageDialog(null, "Rellene todas las casillas", "Error", 0);
+        } else {
+          fecha = txtfecha.getText();
+          lugar = txtlugar.getText();
+          
+        
+        m = new Matrimonio(fecha,lugar);
+            
+            
+            if (txtfecha.getText().equals(fecha)||txtlugar.getText().equals(lugar) ) {
+            
+            JOptionPane.showMessageDialog(null, "Matrimonio registrado con éxito");
+            }
+            txtfecha.setText("");
+            txtlugar.setText("");
+            
+        
+        }
+        
+        
+    }//GEN-LAST:event_btnregistrarmActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnregistrarm;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtlugar;
     // End of variables declaration//GEN-END:variables

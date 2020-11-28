@@ -20,7 +20,7 @@ public abstract class Novio <T>{
     private T cedula;
     private T direccion;
     private T genero;
-    private Date fechaDeNacimiento;
+    private T fechaDeNacimiento;
     private Testigo testigo;
     private Autoridad autoridad;
     //Agregacion
@@ -31,7 +31,7 @@ public abstract class Novio <T>{
      testigos = new ArrayList<>(); 
     }
 
-    public Novio(T nombre, T apellido, T cedula, T direccion, T genero, Date fechaDeNacimiento) {
+    public Novio(T nombre, T apellido, T cedula, T direccion, T genero, T fechaDeNacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -83,11 +83,11 @@ public abstract class Novio <T>{
         this.genero = genero;
     }
 
-    public Date getFechaDeNacimiento() {
+    public T getFechaDeNacimiento() {
         return fechaDeNacimiento;
     }
 
-    public void setFechaDeNacimiento(Date fechaDeNacimiento) {
+    public void setFechaDeNacimiento(T fechaDeNacimiento) {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 

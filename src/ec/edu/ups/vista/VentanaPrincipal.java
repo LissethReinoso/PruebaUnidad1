@@ -189,7 +189,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void pasteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteMenuItemActionPerformed
         // TODO add your handling code here:
-        
+        desktopPane.add(ventanaListarMatrimonio);
+        ventanaListarMatrimonio.setVisible(true);
         
         
     }//GEN-LAST:event_pasteMenuItemActionPerformed
